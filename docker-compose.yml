@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+
+  redcap-webapp:
+    build: .
+    container_name: redcap
+    depends_on:
+      - redcap-db
+    ports:
+      - 80:80
+
+  redcap-db:
+    image: mariadb
+    container_name: redcap-db
+    env_file:
+      - local.conf
