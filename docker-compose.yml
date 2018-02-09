@@ -13,5 +13,11 @@ services:
   redcap-db:
     image: mariadb
     container_name: redcap-db
+    volumes:
+      - redcap-db-data:/var/lib/mysql
     env_file:
       - local.conf
+
+volumes:
+  redcap-db-data:
+    driver: local
